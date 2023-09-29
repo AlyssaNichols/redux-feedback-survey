@@ -3,57 +3,55 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
-export default function Feeling(){
+export default function Support (){
 
   const dispatch = useDispatch();
   const history = useHistory(); 
   const feedback = useSelector(store => store.feedback);
 
-
-  let feelingReduxState;
+  let supportReduxState;
 
   // conditional to set local react state and avoid undefined.
   // if editing a previous entry, will show current reducer state in input
-  if (feedback.feeling) {
-    console.log('feeling is', feedback.feeling);
-    feelingReduxState = feedback.feeling;
+  if (feedback.support) {
+    console.log('support is', feedback.support);
+    supportReduxState = feedback.support;
   } else {
-    feelingReduxState = 1;
+    supportReduxState = '';
   }
 
   // local state for input
-  const [feeling, setFeeling] = useState(feelingReduxState);
+  const [support, setSupport] = useState(supportReduxState);
 
   // go back to previous page
   const handleBack = (event) => {
     event.preventDefault();
 
-    history.push('/');
+    history.push('/understanding');
   } // end handleBack
   
-  // on FeelingRating form submission validate and dispatch appropriate data
+
   const handleSubmit = (event) => {
     event.preventDefault();
-          // reset local state on submission
-          setFeeling();
-          // move user to the next page 
-          history.push('/understanding');
 
-    console.log('in handleSubmit, feeling is: ', feeling);
+    console.log('in handleSubmit, support is: ', support);
 
     // validate data on form submission
-    if (feeling === '') {
-      return alert('Please enter a number between 1 and 5 and try again.')
-    } else if (feeling > 5 || feeling < 1)     {
-      return alert('Please enter a number between 1 and 5 and try again.');
+    if (support === '') {
+      return alert('Please enter a number between 1 and 5 before submission.');
+    } else if (support > 5 || support < 1)     {
+      return alert('Please enter a number between 1 and 5 before submission.');
     } else {
       // if there is data, send local state to be stored in reducer
       dispatch({
-        type: 'SET_FEELING',
-        payload: { property: 'feeling', value: feeling }
+        type: 'SET_SUPPORT',
+        payload: { property: 'support', value: support }
       })
 
-
+      // reset local state on submission
+      setSupport('');
+      // move user to the next page 
+      history.push('/comments');
     } // end else
   } // end handleSubmit
     
@@ -61,19 +59,18 @@ export default function Feeling(){
 
   return(
     <>
-      <h2>How are you feeling today?</h2>
+      <h2>How well are you being supported?</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="number" 
           id="filled-basic" 
-          label="Rate How You're Feeling" 
           variant="filled" 
           placeholder="1 - 5" 
           min="1"
           max="5"
-          value={feeling}
+          value={support}
           // forces the input value from string to number from submission
-          onChange={event => setFeeling(Number(event.target.value))} 
+          onChange={event => setSupport(Number(event.target.value))} 
         />
         <br />
         <br />
@@ -83,4 +80,3 @@ export default function Feeling(){
     </>
   );
 } 
-
