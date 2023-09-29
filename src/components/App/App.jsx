@@ -9,19 +9,26 @@ import './App.css';
 import Feeling from "../Feeling/Feeling";
 import Understanding from "../Understanding/Understanding";
 import Support from "../Support/Support";
-// import Admin from '../Admin/Admin';
+import Admin from '../Admin/Admin';
 import Comments from "../Comments/Comments";
-// import Home from '../Home/Home';
+import Home from '../Home/Home';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback'
-
+import Submitted from "../Submitted/Submitted";
 
 function App() {
-  // Local state used for conditional rendering on Home page
-  // On submission from ReviewFeedback, boolean is set to true
-  // When the "give feedback" button is clicked on home, boolean is set to false
 
-  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
-  
+  const displayFeedback = () => {
+    axios
+      .get("/feedback/")
+      .then((response) => {
+        console.log(response.data);
+        dispatch({ type: "SET_FEEDBACK_LIST", payload: response.data });
+      })
+      .catch((error) => {
+        console.log("error on GET to display feedbackListReducer", error);
+      });
+  };
+
   return (
     <div className='App'>
       
@@ -64,6 +71,9 @@ function App() {
                 Review Feedback
               </NavLink>
               </li>
+              <NavLink exact to="/submitted">
+                Submitted
+              </NavLink>
               <li>
               <NavLink exact to="/admin">
                 Admin
@@ -71,13 +81,8 @@ function App() {
             </li>
           </ul>
         </nav>
-          {/* Home, Welcome Greeting */}
-          {/* Invites the user to engage with survey */}
           <Route path="/" exact>
-            {/* <Home 
-              feedbackSubmitted={feedbackSubmitted} 
-              setFeedbackSubmitted={setFeedbackSubmitted} 
-            /> */}
+            <Home  />
           </Route>
 
           {/* 1st view, Input Feeling Rating */}
@@ -107,11 +112,14 @@ function App() {
           {/* 5th view, Review Feedback Before Submission to DB */}
           {/* Review your feedback before submission. */}
           <Route path="/reviewFeedback">
-            <ReviewFeedback setFeedbackSubmitted={setFeedbackSubmitted} />
+            <ReviewFeedback  />
+          </Route>
+          <Route path="/submitted">
+            <Submitted />
           </Route>
 
           <Route path="/admin">
-            {/* <Admin /> */}
+            <Admin displayFeedback={displayFeedback}/>
           </Route>
 
         </Router>

@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-router.get("/feedback", (req, res) => {
+router.get("/", (req, res) => {
   // Find all orders and return them
   pool
-    .query('SELECT * FROM "feedback" ORDER BY "id" ASC;')
+    .query('SELECT * FROM "feedback";')
     .then((result) => {
       res.send(result.rows);
     })
@@ -25,7 +25,7 @@ router.post("/", (req, res) => {
     `;
   pool
     .query(queryText, [
-      feedback.feelings,
+      feedback.feeling,
       feedback.understanding,
       feedback.support,
       feedback.comments,

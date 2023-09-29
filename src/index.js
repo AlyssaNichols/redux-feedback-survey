@@ -15,7 +15,7 @@ import { Provider } from "react-redux";
 
 // This feedback reducer stores submitted values from each input view.
 // This data will be found in an object as the body for DB submission
-const feedback = (state = {}, action) => {
+const feedbackReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_FEELING":
       return {
@@ -47,7 +47,7 @@ const feedback = (state = {}, action) => {
 // This feedbackList reducer stores previous submissions,
 // which have been retrieved using an axios GET.
 // using an array so data is able to be mapped over
-const feedbackList = (state = [], action) => {
+const feedbackListReducer = (state = [], action) => {
   if (action.type === "SET_FEEDBACK_LIST") {
     return action.payload;
   }
@@ -56,8 +56,8 @@ const feedbackList = (state = [], action) => {
 
 const storeInstance = createStore(
   combineReducers({
-    feedback,
-    feedbackList,
+    feedbackReducer,
+    feedbackListReducer,
   }),
   applyMiddleware(logger)
 );
