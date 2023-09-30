@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
     });
 }); 
 
-router.delete('/:id', (req, res) => {
+router.delete('/delete/:id', (req, res) => {
   let id = req.params.id
   let queryText = 'DELETE FROM "feedback" WHERE id=$1;'
   pool.query(queryText, [id]).then((result) => {
@@ -48,5 +48,21 @@ router.delete('/:id', (req, res) => {
       res.sendStatus(500);
   })
 });
+
+router.put('/flagged/:id', (req, res) => {
+  
+  let id = req.params.id;
+  let flagged = req.body.flagged;
+
+  const queryText = 'UPDATE "feedback" SET "flagged" = $1 WHERE "id" = $2;';
+
+  pool.query(queryText, [id, flagged])
+  .then(dbRes => res.sendStatus(200))
+  .catch(err => {
+    console.log('There was an error:', err)
+    res.sendStatus(500);
+  });
+}) 
+
 
 module.exports = router;

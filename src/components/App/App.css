@@ -3,23 +3,26 @@
 }
 
 .App-header {
-  background-color: #244242;
+  background-color: #354444;
   min-height: 70px;
   padding: 20px;
   color: white;
-  margin-top: 50px;
+  margin-bottom: 50px
 }
 
 .App-title {
-  font-size: 2em;
+  font-size: 45px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 200;
 }
 
 .App-intro {
   font-size: large;
 }
 
-h4 {
-  font-style: italic;
+h2 {
+  font-style: none;
+  font-size: 28px;
 }
 
 nav {
@@ -166,4 +169,18 @@ button:active {
 .removeButton:active {
   transform: scale(0.93);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+p{
+  font-size: 20px;
+}
+
+  footer {
+    background-color: #354444;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }

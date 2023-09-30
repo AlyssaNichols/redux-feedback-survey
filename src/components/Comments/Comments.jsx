@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Box, TextField } from "@mui/material";
+import { Button } from '@mui/material';
 
 export default function Comments() {
   const dispatch = useDispatch();
@@ -52,26 +53,25 @@ export default function Comments() {
           value={comments}
           onChange={event => setComments(event.target.value)} 
         /> */}
-        <Box
+        <Box className="commentsField"
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
+            "& .MuiTextField-root": { m: 1, width: "40ch" },
           }}
           noValidate
           autoComplete="off"
         >
         <TextField
-          id="outlined-helperText"
           className="commentInput"
           label="Comments"
-          helperText="Any additional comments!"
+          helperText=" Leave any additional comments"
           value={comments}
           onChange={event => setComments(event.target.value)}
         />
         </Box>
         <br />
         <br />
-        <button onClick={handleBack}>Back</button>{" "}
-        <button onClick={handleSubmit}>Next</button>
+        <Button color="secondary" variant="contained" onClick={handleBack}>Back</Button>{" "}
+        <Button color="secondary" variant="contained" onClick={handleSubmit}>Next</Button>
       </form>
     </>
   );

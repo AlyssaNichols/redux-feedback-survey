@@ -18,6 +18,7 @@ import Submitted from "../Submitted/Submitted";
 function App() {
 
 
+  
   return (
     <div className='App'>
       
@@ -28,7 +29,7 @@ function App() {
 
       <main className='App-main'>
         <Router>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <NavLink exact to="/">
@@ -71,7 +72,7 @@ function App() {
               </NavLink>
             </li>
           </ul>
-        </nav>
+        </nav> */}
           <Route path="/" exact>
             <Home  />
           </Route>
@@ -107,6 +108,11 @@ function App() {
 
         </Router>
       </main>
+      <footer>
+        <div className="footer-content">
+            <p>&copy;  Alyssa Nichols 2023</p>
+        </div>
+    </footer>
     </div>
   );
 }

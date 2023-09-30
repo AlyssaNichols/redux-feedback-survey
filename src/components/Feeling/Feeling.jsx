@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { InputLabel } from "@mui/material";
 import { Select } from "@mui/material";
 import { MenuItem, Box, FormControl } from "@mui/material";
+import { Button } from '@mui/material';
 
 export default function Feeling() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export default function Feeling() {
     console.log("feeling is", feedback.feeling);
     feelingReduxState = feedback.feeling;
   } else {
-    feelingReduxState = " ";
+    feelingReduxState = "";
   }
 
   // local state for input
@@ -57,6 +58,7 @@ export default function Feeling() {
   return (
     <>
       <h2>How are you feeling today?</h2>
+      <br />
       <form onSubmit={handleSubmit}>
         {/* <input
           type="number" 
@@ -90,8 +92,8 @@ export default function Feeling() {
         </Box>
         <br />
         <br />
-        <button onClick={handleBack}>Back</button>{" "}
-        <button onClick={handleSubmit}>Next</button>
+        <Button color="secondary" variant="contained" onClick={handleBack}>Back</Button>{" "}
+        <Button color="secondary" variant="contained" onClick={handleSubmit}>Next</Button>
       </form>
     </>
   );

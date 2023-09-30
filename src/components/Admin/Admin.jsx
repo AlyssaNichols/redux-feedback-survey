@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
+import { Button } from "@mui/material";
 
 export default function Admin() {
   const dispatch = useDispatch();
@@ -11,34 +12,37 @@ export default function Admin() {
 
   useEffect(() => {
     displayFeedback();
-  }, []);;
+  }, []);
 
-    const displayFeedback = () => {
-      axios
-        .get("/feedback")
-        .then((response) => {
-          console.log(response.data);
-          dispatch({ type: "SET_FEEDBACK_LIST", payload: response.data });
-        })
-        .catch((error) => {
-          console.log("error on GET to display feedbackListReducer", error);
-        });
-    };
+  const displayFeedback = () => {
+    axios
+      .get("/feedback")
+      .then((response) => {
+        console.log(response.data);
+        dispatch({ type: "SET_FEEDBACK_LIST", payload: response.data });
+      })
+      .catch((error) => {
+        console.log("error on GET to display feedbackListReducer", error);
+      });
+  };
 
   const handleDelete = (id) => {
     axios({
-      method: 'DELETE',
-      url: `/feedback/${id}`
+      method: "DELETE",
+      url: `/feedback/delete/${id}`,
     })
-      .then((response) => { 
-        
-        displayFeedback(); 
+      .then((response) => {
+        displayFeedback();
       })
       .catch((error) => {
-        console.log('error on delete: ', error)
-      })
+        console.log("error on delete: ", error);
+      });
   };
 
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 
   return (
     <>
@@ -51,6 +55,7 @@ export default function Admin() {
               <th>Comprehension</th>
               <th>Support</th>
               <th>Comments</th>
+              <th>Date</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -62,10 +67,24 @@ export default function Admin() {
                   <td>{feedback.understanding}</td>
                   <td>{feedback.support}</td>
                   <td>{feedback.comments}</td>
+                  <td>{formatDate(feedback.date)}</td>
                   <td>
-                    <button className="removeButton" onClick={() => handleDelete(feedback.id)}>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      className="removeButton"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Are you sure you want to delete this feedback?"
+                          )
+                        ) {
+                          handleDelete(feedback.id);
+                        }
+                      }}
+                    >
                       Remove
-                    </button>
+                    </Button>
                   </td>
                 </tr>
               );

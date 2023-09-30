@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { Button } from '@mui/material';
 
 export default function ReviewFeedback() {
     const history = useHistory();
@@ -34,7 +35,7 @@ export default function ReviewFeedback() {
       <p className="feedbackFeeling" >Understanding: {feedback.understanding}</p>
       <p className="feedbackFeeling" >Support: {feedback.support}</p>
       <p className="feedbackFeeling" >Comments: {feedback.comments}</p>
-      <button onClick={submitFeedback}>Submit</button>
+      <Button color="secondary" variant="contained" onClick={submitFeedback}>Submit</Button>
     </>
   );
 }
