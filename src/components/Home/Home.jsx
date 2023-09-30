@@ -10,7 +10,7 @@ function startSurvey() {
   return(
     <>
       <h2>Let us know how you're feeling this week!</h2>
-      <button
+      <button className="startButton"
         onClick={startSurvey}
       >Lets get started!
       </button>

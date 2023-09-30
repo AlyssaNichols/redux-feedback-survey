@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Submitted(){
 const history = useHistory();
 const dispatch = useDispatch();
+dispatch({ type: 'CLEAR_FEEDBACK' });
+
 
     function returnHome(){
         history.push("/");
@@ -14,7 +16,7 @@ const dispatch = useDispatch();
         <>
         <h1>Feedback Submitted!</h1>
         <h3>Thank you!</h3>
-        <button onClick={returnHome}>Leave New Feedback!</button>
+        <button className="startButton" onClick={returnHome}>Leave New Feedback!</button>
         </>
     )
 }

@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #244242;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -59,4 +59,111 @@ nav ul li a {
 
 nav ul li a:hover {
   color: #ca6cc6; /* Change color on hover */
+}
+
+.admin-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+.admin-header {
+  background-color: #87a39f;
+  color: rgb(0, 0, 0);
+  /* text-shadow: 
+    -1px -1px 0 #000, 
+    1px -1px 0 #000,  
+    -1px 1px 0 #000,  
+    1px 1px 0 #000;   */
+  padding: 10px 0;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  background-color: #f7f7f7;
+  padding: 10px 5px;
+  border-bottom: 1px solid #ddd;
+  color: black;
+  font-size: 24px
+}
+
+.admin-table td {
+  padding: 10px 5px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-size: 20px
+}
+
+input {
+  width: 20%;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  border: 2px solid #3498db; /* Add a border with a cool color */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f1f1f1; /* Light background color */
+  color: #333; /* Text color */
+}
+
+/* Style the input when it's in focus */
+input:focus {
+  outline: none; /* Remove the default focus outline */
+  border-color: #ea2ae7; /* Change the border color on focus */
+  box-shadow: 0 0 5px #ea2ae7; /* Add a subtle box shadow */
+}
+
+.startButton {
+  background-color: rgb(160, 253, 187);
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 50px;
+  width: 25%;
+  font-size: 24px;
+}
+
+.startButton:hover {
+  background-color: rgb(87, 210, 155);
+}
+.startButton:active {
+  transform: scale(0.93);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+button {
+  background-color: rgb(160, 253, 187);
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 40px;
+  width: 8%;
+  font-size: 22px;
+}
+
+button:hover {
+  background-color: rgb(87, 210, 155);
+}
+button:active {
+  transform: scale(0.93);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.removeButton{
+  background-color: rgb(255, 122, 122);
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 35px;
+  width: 100px;
+  font-size: 20px;
+}
+
+.removeButton:hover {
+  background-color: rgb(254, 6, 6);
+  color:white;
+}
+.removeButton:active {
+  transform: scale(0.93);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }

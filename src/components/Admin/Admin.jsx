@@ -51,6 +51,7 @@ export default function Admin() {
               <th>Comprehension</th>
               <th>Support</th>
               <th>Comments</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -62,7 +63,7 @@ export default function Admin() {
                   <td>{feedback.support}</td>
                   <td>{feedback.comments}</td>
                   <td>
-                    <button onClick={() => handleDelete(feedback.id)}>
+                    <button className="removeButton" onClick={() => handleDelete(feedback.id)}>
                       Remove
                     </button>
                   </td>

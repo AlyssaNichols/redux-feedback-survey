@@ -74,7 +74,7 @@ export default function Support (){
         />
         <br />
         <br />
-          <button onClick={handleBack}>Back</button>
+          <button onClick={handleBack}>Back</button>{" "}
           <button onClick={handleSubmit}>Next</button>
       </form>
     </>

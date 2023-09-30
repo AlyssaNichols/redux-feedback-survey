@@ -60,9 +60,11 @@ function App() {
                 Review Feedback
               </NavLink>
               </li>
+              <li>
               <NavLink exact to="/submitted">
                 Submitted
               </NavLink>
+              </li>
               <li>
               <NavLink exact to="/admin">
                 Admin
@@ -74,32 +76,24 @@ function App() {
             <Home  />
           </Route>
 
-          {/* 1st view, Input Feeling Rating */}
-          {/* How are you feeling today? */}
+
           <Route path="/feeling">
             <Feeling />
           </Route>
 
-          {/* 2nd view, Input Understand Rating */}
-          {/* How well are you understanding the content? */}
           <Route path="/understanding">
             <Understanding />
           </Route>
 
-          {/* 3rd view, Input Support Rating */}
-          {/* How well are you being supported? */}
           <Route path="/support">
               <Support />
           </Route>
 
-          {/* 4th view, Input Additional Comments */}
-          {/* Any comments you want to leave? */}
           <Route path="/comments">
             <Comments />
           </Route>
 
-          {/* 5th view, Review Feedback Before Submission to DB */}
-          {/* Review your feedback before submission. */}
+
           <Route path="/reviewFeedback">
             <ReviewFeedback  />
           </Route>
