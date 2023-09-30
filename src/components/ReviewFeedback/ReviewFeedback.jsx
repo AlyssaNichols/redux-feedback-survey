@@ -17,6 +17,7 @@ export default function ReviewFeedback() {
         .then(res => {
           console.log(`Server response after submission:`, res);
           history.push('/submitted');
+          dispatch({ type: 'CLEAR_FEEDBACK' });
         })
         .catch(err => {
           console.log('There was an error adding feedback:', err);

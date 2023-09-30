@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Submitted(){
 const history = useHistory();
 const dispatch = useDispatch();
-dispatch({ type: 'CLEAR_FEEDBACK' });
+// dispatch({ type: 'CLEAR_FEEDBACK' });
+
 
 
     function returnHome(){

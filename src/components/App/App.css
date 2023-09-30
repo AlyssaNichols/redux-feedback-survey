@@ -98,23 +98,23 @@ nav ul li a:hover {
   font-size: 20px
 }
 
-input {
+.input {
   width: 20%;
   padding: 10px;
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
   border: 2px solid #3498db; /* Add a border with a cool color */
   border-radius: 5px; /* Rounded corners */
-  background-color: #f1f1f1; /* Light background color */
   color: #333; /* Text color */
 }
 
+
 /* Style the input when it's in focus */
-input:focus {
-  outline: none; /* Remove the default focus outline */
-  border-color: #ea2ae7; /* Change the border color on focus */
-  box-shadow: 0 0 5px #ea2ae7; /* Add a subtle box shadow */
-}
+/* .input:focus {
+  outline: none; 
+  border-color: #ea2ae7;
+  box-shadow: 0 0 5px #ea2ae7; 
+}   */
 
 .startButton {
   background-color: rgb(160, 253, 187);

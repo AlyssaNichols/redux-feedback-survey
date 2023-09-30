@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { InputLabel } from "@mui/material";
+import { Select } from "@mui/material";
+import { MenuItem, Box, FormControl } from "@mui/material";
 
 
 export default function Support (){
@@ -61,7 +64,7 @@ export default function Support (){
     <>
       <h2>How well are you being supported?</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        {/* <input
           type="number" 
           id="filled-basic" 
           variant="filled" 
@@ -71,7 +74,25 @@ export default function Support (){
           value={support}
           // forces the input value from string to number from submission
           onChange={event => setSupport(Number(event.target.value))} 
-        />
+        /> */}
+        <Box sx={{ minWidth: 200 }}>
+          <FormControl className="input">
+            <InputLabel id="demo-simple-select-label">Support</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={support}
+              label="Support"
+              onChange={(event) => setSupport(Number(event.target.value))}
+            >
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+              <MenuItem value={5}>5</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
         <br />
         <br />
           <button onClick={handleBack}>Back</button>{" "}
