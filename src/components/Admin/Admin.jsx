@@ -47,7 +47,8 @@ export default function Admin() {
   // returning to the page
   return (
     <>
-      <h2 className="admin-header">Admin Orders</h2>
+      <h2 className="admin-header">Feedback History</h2>
+      <br />
       <div className="admin-container">
         <table className="admin-table">
           <thead>

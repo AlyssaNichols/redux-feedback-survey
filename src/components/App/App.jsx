@@ -14,6 +14,7 @@ import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 import Submitted from "../Submitted/Submitted";
 
 function App() {
+  // left the nav bar in comments for easier routes to each page
   return (
     <div className="App">
       <header className="App-header">
@@ -23,7 +24,7 @@ function App() {
 
       <main className="App-main">
         <Router>
-          <nav>
+          {/* <nav>
           <ul>
             <li>
               <NavLink exact to="/">
@@ -66,7 +67,7 @@ function App() {
               </NavLink>
             </li>
           </ul>
-        </nav>
+        </nav> */}
           <Route path="/" exact>
             <Home />
           </Route>
@@ -101,7 +102,7 @@ function App() {
       </main>
       <footer>
         <div className="footer-content">
-          <p>&copy; Alyssa Nichols 2023</p>
+          <p className="footerP"> &copy; Alyssa Nichols 2023</p>
         </div>
       </footer>
     </div>
