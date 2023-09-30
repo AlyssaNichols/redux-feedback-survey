@@ -4,57 +4,43 @@ import { useHistory } from "react-router-dom";
 import { InputLabel } from "@mui/material";
 import { Select } from "@mui/material";
 import { MenuItem, Box, FormControl } from "@mui/material";
-import { Button } from '@mui/material';
+import { Button } from "@mui/material";
 
 export default function Understanding() {
   const dispatch = useDispatch();
   const history = useHistory();
   const feedback = useSelector((store) => store.feedbackReducer);
 
-  let understandingReduxState;
-
-  // conditional to set local react state and avoid undefined.
-  // if editing a previous entry, will show current reducer state in input
-  if (feedback.understanding) {
-    console.log("understanding is", feedback.understanding);
-    understandingReduxState = feedback.understanding;
-  } else {
-    understandingReduxState = "";
-  }
+  let understandingValue = feedback.understanding;
 
   // local state for input
-  const [understanding, setUnderstanding] = useState(understandingReduxState);
+  const [understanding, setUnderstanding] = useState(understandingValue);
 
-  // go back to previous page
   const handleBack = (event) => {
     event.preventDefault();
-
+    // go back to previous page
     history.push("/feeling");
-  }; // end handleBack
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    console.log("in handleSubmit, understanding is: ", understanding);
-
-    // validate data on form submission
+    // validate data
     if (understanding === "") {
       return alert("Please enter a number between 1 and 5 before submission.");
     } else if (understanding > 5 || understanding < 1) {
       return alert("Please enter a number between 1 and 5 before submission.");
     } else {
-      // if there is data, send local state to be stored in reducer
+      // if there is data, send to reducer
       dispatch({
         type: "SET_UNDERSTANDING",
         payload: { property: "understanding", value: understanding },
       });
-
-      // reset local state on submission
+      // reset understanding
       setUnderstanding("");
       // move user to the next page
       history.push("/support");
-    } // end else
-  }; // end handleSubmit
+    }
+  };
 
   return (
     <>
@@ -92,8 +78,12 @@ export default function Understanding() {
         </Box>
         <br />
         <br />
-        <Button color="secondary" variant="contained" onClick={handleBack}>Back</Button>{" "}
-        <Button color="secondary" variant="contained" onClick={handleSubmit}>Next</Button>
+        <Button color="secondary" variant="contained" onClick={handleBack}>
+          Back
+        </Button>{" "}
+        <Button color="secondary" variant="contained" onClick={handleSubmit}>
+          Next
+        </Button>
       </form>
     </>
   );

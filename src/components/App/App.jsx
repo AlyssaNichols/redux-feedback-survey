@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./App.css";
 import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 // App.jsx Stylesheet
-import './App.css';
+import "./App.css";
 import Feeling from "../Feeling/Feeling";
 import Understanding from "../Understanding/Understanding";
 import Support from "../Support/Support";
-import Admin from '../Admin/Admin';
+import Admin from "../Admin/Admin";
 import Comments from "../Comments/Comments";
-import Home from '../Home/Home';
-import ReviewFeedback from '../ReviewFeedback/ReviewFeedback'
+import Home from "../Home/Home";
+import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 import Submitted from "../Submitted/Submitted";
 
 function App() {
-
-
-  
   return (
-    <div className='App'>
-      
-      <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
 
-      <main className='App-main'>
+      <main className="App-main">
         <Router>
-        {/* <nav>
+          <nav>
           <ul>
             <li>
               <NavLink exact to="/">
@@ -72,11 +66,10 @@ function App() {
               </NavLink>
             </li>
           </ul>
-        </nav> */}
+        </nav>
           <Route path="/" exact>
-            <Home  />
+            <Home />
           </Route>
-
 
           <Route path="/feeling">
             <Feeling />
@@ -87,16 +80,15 @@ function App() {
           </Route>
 
           <Route path="/support">
-              <Support />
+            <Support />
           </Route>
 
           <Route path="/comments">
             <Comments />
           </Route>
 
-
           <Route path="/reviewFeedback">
-            <ReviewFeedback  />
+            <ReviewFeedback />
           </Route>
           <Route path="/submitted">
             <Submitted />
@@ -105,14 +97,13 @@ function App() {
           <Route path="/admin">
             <Admin />
           </Route>
-
         </Router>
       </main>
       <footer>
         <div className="footer-content">
-            <p>&copy;  Alyssa Nichols 2023</p>
+          <p>&copy; Alyssa Nichols 2023</p>
         </div>
-    </footer>
+      </footer>
     </div>
   );
 }

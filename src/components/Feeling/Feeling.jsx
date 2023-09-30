@@ -4,39 +4,26 @@ import { useHistory } from "react-router-dom";
 import { InputLabel } from "@mui/material";
 import { Select } from "@mui/material";
 import { MenuItem, Box, FormControl } from "@mui/material";
-import { Button } from '@mui/material';
+import { Button } from "@mui/material";
 
 export default function Feeling() {
   const dispatch = useDispatch();
   const history = useHistory();
   const feedback = useSelector((store) => store.feedbackReducer);
 
-  let feelingReduxState;
-
-  // conditional to set local react state and avoid undefined.
-  // if editing a previous entry, will show current reducer state in input
-  if (feedback.feeling) {
-    console.log("feeling is", feedback.feeling);
-    feelingReduxState = feedback.feeling;
-  } else {
-    feelingReduxState = "";
-  }
+  let feelingValue = feedback.feeling;
 
   // local state for input
-  const [feeling, setFeeling] = useState(feelingReduxState);
+  const [feeling, setFeeling] = useState(feelingValue);
 
-  // go back to previous page
   const handleBack = (event) => {
     event.preventDefault();
-
+    // on click pushes back to home page
     history.push("/");
-  }; // end handleBack
+  };
 
-  // on FeelingRating form submission validate and dispatch appropriate data
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    console.log("in handleSubmit, feeling is: ", feeling);
 
     // validate data on form submission
     if (feeling === "") {
@@ -44,16 +31,17 @@ export default function Feeling() {
     } else if (feeling > 5 || feeling < 1) {
       return alert("Please enter a number between 1 and 5 and try again.");
     } else {
-      // if there is data, send local state to be stored in reducer
+      // if there is data, send to reducer
       dispatch({
         type: "SET_FEELING",
         payload: { property: "feeling", value: feeling },
       });
+      // reset feeling
       setFeeling("");
-      // move user to the next page
+      // on click moves to the next page
       history.push("/understanding");
-    } // end else
-  }; // end handleSubmit
+    }
+  };
 
   return (
     <>
@@ -92,8 +80,12 @@ export default function Feeling() {
         </Box>
         <br />
         <br />
-        <Button color="secondary" variant="contained" onClick={handleBack}>Back</Button>{" "}
-        <Button color="secondary" variant="contained" onClick={handleSubmit}>Next</Button>
+        <Button color="secondary" variant="contained" onClick={handleBack}>
+          Back
+        </Button>{" "}
+        <Button color="secondary" variant="contained" onClick={handleSubmit}>
+          Next
+        </Button>
       </form>
     </>
   );

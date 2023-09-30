@@ -9,11 +9,12 @@ export default function Admin() {
   const feedback = useSelector((state) => state.feedbackListReducer);
 
   console.log(feedback);
-
+  // on page load have feedback loaded
   useEffect(() => {
     displayFeedback();
   }, []);
 
+  // AXIOS GET FUNCTION
   const displayFeedback = () => {
     axios
       .get("/feedback")
@@ -25,7 +26,7 @@ export default function Admin() {
         console.log("error on GET to display feedbackListReducer", error);
       });
   };
-
+  // AXIOS DELETE FUNCTION
   const handleDelete = (id) => {
     axios({
       method: "DELETE",
@@ -38,12 +39,12 @@ export default function Admin() {
         console.log("error on delete: ", error);
       });
   };
-
+  // format the date to look nicer in the table
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-
+  // returning to the page
   return (
     <>
       <h2 className="admin-header">Admin Orders</h2>
