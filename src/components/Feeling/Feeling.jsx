@@ -7,7 +7,7 @@ export default function Feeling(){
 
   const dispatch = useDispatch();
   const history = useHistory(); 
-  const feedback = useSelector(store => store.feedback);
+  const feedback = useSelector(store => store.feedbackReducer);
 
 
   let feelingReduxState;
@@ -18,7 +18,7 @@ export default function Feeling(){
     console.log('feeling is', feedback.feeling);
     feelingReduxState = feedback.feeling;
   } else {
-    feelingReduxState = 1;
+    feelingReduxState = " ";
   }
 
   // local state for input

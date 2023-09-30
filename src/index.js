@@ -44,15 +44,17 @@ const feedbackReducer = (state = {}, action) => {
   }
 };
 
-// This feedbackList reducer stores previous submissions,
-// which have been retrieved using an axios GET.
-// using an array so data is able to be mapped over
+
 const feedbackListReducer = (state = [], action) => {
-  if (action.type === "SET_FEEDBACK_LIST") {
-    return action.payload;
-  }
-  return state;
-};
+switch (action.type) {
+    case "SET_FEEDBACK_LIST":
+      return action.payload;
+    case "CLEAR_FEEDBACK_LIST":
+      return [];
+      default:
+        return state;
+}
+}
 
 const storeInstance = createStore(
   combineReducers({

@@ -7,7 +7,7 @@ export default function Comments (){
 
   const dispatch = useDispatch();
   const history = useHistory(); 
-  const feedback = useSelector(store => store.feedback);
+  const feedback = useSelector(store => store.feedbackReducer);
 
   let commentsReduxState = "";
 

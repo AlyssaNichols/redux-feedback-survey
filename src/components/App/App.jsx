@@ -17,17 +17,6 @@ import Submitted from "../Submitted/Submitted";
 
 function App() {
 
-  const displayFeedback = () => {
-    axios
-      .get("/feedback/")
-      .then((response) => {
-        console.log(response.data);
-        dispatch({ type: "SET_FEEDBACK_LIST", payload: response.data });
-      })
-      .catch((error) => {
-        console.log("error on GET to display feedbackListReducer", error);
-      });
-  };
 
   return (
     <div className='App'>
@@ -119,7 +108,7 @@ function App() {
           </Route>
 
           <Route path="/admin">
-            <Admin displayFeedback={displayFeedback}/>
+            <Admin />
           </Route>
 
         </Router>
