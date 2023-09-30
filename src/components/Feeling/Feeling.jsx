@@ -34,10 +34,6 @@ export default function Feeling() {
   // on FeelingRating form submission validate and dispatch appropriate data
   const handleSubmit = (event) => {
     event.preventDefault();
-    // reset local state on submission
-    setFeeling();
-    // move user to the next page
-    history.push("/understanding");
 
     console.log("in handleSubmit, feeling is: ", feeling);
 
@@ -52,6 +48,9 @@ export default function Feeling() {
         type: "SET_FEELING",
         payload: { property: "feeling", value: feeling },
       });
+      setFeeling("");
+      // move user to the next page
+      history.push("/understanding");
     } // end else
   }; // end handleSubmit
 
