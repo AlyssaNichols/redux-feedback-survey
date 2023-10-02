@@ -29,7 +29,10 @@ export default function ReviewFeedback() {
       <p className="feedbackFeeling">Feeling: {feedback.feeling}</p>
       <p className="feedbackFeeling">Understanding: {feedback.understanding}</p>
       <p className="feedbackFeeling">Support: {feedback.support}</p>
-      <p className="feedbackFeeling">Comments: {feedback.comments}</p>
+      <p className="feedbackFeeling">
+        Comments:{" "}
+        {feedback.comments ? feedback.comments : "No comments were given!"}
+      </p>
       <Button color="secondary" variant="contained" onClick={submitFeedback}>
         Submit
       </Button>
