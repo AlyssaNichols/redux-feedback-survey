@@ -20,22 +20,22 @@ const feedbackReducer = (state = {}, action) => {
     case "SET_FEELING":
       return {
         ...state,
-        [action.payload.property]: action.payload.value,
+        [action.payload.property]: Number(action.payload.value),
       };
     case "SET_UNDERSTANDING":
       return {
         ...state,
-        [action.payload.property]: action.payload.value,
+        [action.payload.property]: Number(action.payload.value),
       };
     case "SET_SUPPORT":
       return {
         ...state,
-        [action.payload.property]: action.payload.value,
+        [action.payload.property]: Number(action.payload.value),
       };
     case "SET_COMMENTS":
       return {
         ...state,
-        [action.payload.property]: action.payload.value,
+        [action.payload.property]: Number(action.payload.value),
       };
     case "CLEAR_FEEDBACK":
       return {};
