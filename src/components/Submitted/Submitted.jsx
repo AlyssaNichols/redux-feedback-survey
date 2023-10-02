@@ -8,7 +8,7 @@ export default function Submitted() {
   // dispatch({ type: 'CLEAR_FEEDBACK' });
 
   function returnHome() {
-    // on clicl returns user to homepage to leave another round of feedback
+    // on click returns user to homepage to leave another round of feedback
     history.push("/");
   }
   return (
