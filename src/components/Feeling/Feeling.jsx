@@ -11,8 +11,13 @@ export default function Feeling() {
   const history = useHistory();
   const feedback = useSelector((store) => store.feedbackReducer);
 
-  let feelingValue = feedback.feeling;
+  let feelingValue;
 
+  if (feedback.feeling) {
+    feelingValue = feedback.feeling;
+  } else {
+    feelingValue = " ";
+  }
   // local state for input
   const [feeling, setFeeling] = useState(feelingValue);
 
@@ -37,7 +42,7 @@ export default function Feeling() {
         payload: { property: "feeling", value: feeling },
       });
       // reset feeling
-      setFeeling("");
+      setFeeling(" ");
       // on click moves to the next page
       history.push("/understanding");
     }

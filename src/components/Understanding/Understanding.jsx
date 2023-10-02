@@ -11,8 +11,16 @@ export default function Understanding() {
   const history = useHistory();
   const feedback = useSelector((store) => store.feedbackReducer);
 
-  let understandingValue = feedback.understanding;
+  let underStandingValue; 
 
+
+  let understandingValue;
+
+  if (feedback.understanding) {
+    understandingValue = feedback.understanding;
+  } else {
+    understandingValue = " ";
+  }
   // local state for input
   const [understanding, setUnderstanding] = useState(understandingValue);
 

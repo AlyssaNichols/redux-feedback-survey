@@ -11,10 +11,17 @@ export default function Support() {
   const history = useHistory();
   const feedback = useSelector((store) => store.feedbackReducer);
 
-  let supportReduxState = feedback.support;
+ 
+  let supportValue;
 
+  if (feedback.support) {
+    supportValue = feedback.support;
+  } else {
+    supportValue = " ";
+  }
   // local state for input
-  const [support, setSupport] = useState(supportReduxState);
+  const [support, setSupport] = useState(supportValue);
+
 
   const handleBack = (event) => {
     event.preventDefault();
