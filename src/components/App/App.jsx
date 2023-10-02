@@ -14,7 +14,7 @@ import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 import Submitted from "../Submitted/Submitted";
 
 function App() {
-  // left the nav bar in comments for easier routes to each page
+  // nav bar is a stretch goal
   return (
     <div className="App">
       <header className="App-header">
@@ -24,7 +24,7 @@ function App() {
 
       <main className="App-main">
         <Router>
-          {/* <nav>
+          <nav>
           <ul>
             <li>
               <NavLink exact to="/">
@@ -67,7 +67,7 @@ function App() {
               </NavLink>
             </li>
           </ul>
-        </nav> */}
+        </nav>
           <Route path="/" exact>
             <Home />
           </Route>
