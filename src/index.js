@@ -17,30 +17,13 @@ import { Provider } from "react-redux";
 // This data will be found in an object as the body for DB submission
 const feedbackReducer = (state = {}, action) => {
   switch (action.type) {
-    case "SET_FEELING":
-      return {
-        ...state,
-        [action.payload.property]: action.payload.value,
-      };
-    case "SET_UNDERSTANDING":
-      return {
-        ...state,
-        [action.payload.property]: action.payload.value,
-      };
-    case "SET_SUPPORT":
-      return {
-        ...state,
-        [action.payload.property]: action.payload.value,
-      };
-    case "SET_COMMENTS":
+    case "SET_FEEDBACK":
       return {
         ...state,
         [action.payload.property]: action.payload.value,
       };
     case "CLEAR_FEEDBACK":
       return {};
-      case 'DELETE_FEEDBACK':
-        return state.filter((feedback) => feedback.id !== action.payload);
     default:
       return state;
   }

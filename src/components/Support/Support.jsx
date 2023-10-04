@@ -42,7 +42,7 @@ export default function Support() {
     } else {
       // if there is data, send to reducer
       dispatch({
-        type: "SET_SUPPORT",
+        type: "SET_FEEDBACK",
         payload: { property: "support", value: support },
       });
       // reset support

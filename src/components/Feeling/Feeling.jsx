@@ -38,7 +38,7 @@ export default function Feeling() {
     } else {
       // if there is data, send to reducer
       dispatch({
-        type: "SET_FEELING",
+        type: "SET_FEEDBACK",
         payload: { property: "feeling", value: feeling },
       });
       // reset feeling

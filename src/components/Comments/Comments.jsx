@@ -23,7 +23,7 @@ export default function Comments() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({
-      type: "SET_COMMENTS",
+      type: "SET_FEEDBACK",
       payload: { property: "comments", value: comments },
     });
     // reset comments

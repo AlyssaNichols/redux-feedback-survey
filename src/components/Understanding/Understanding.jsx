@@ -40,7 +40,7 @@ export default function Understanding() {
     } else {
       // if there is data, send to reducer
       dispatch({
-        type: "SET_UNDERSTANDING",
+        type: "SET_FEEDBACK",
         payload: { property: "understanding", value: understanding },
       });
       // reset understanding
