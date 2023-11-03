@@ -36,14 +36,12 @@ While there is no nav bar, each part of the form is at its own route. Clicking n
 8. The 8th page is a hidden page that is meant only for admin personel. It has a table that shows all of the feedback history and has a button that can remove a specific feedback via the button in its own row. It removes the feedback from the table AND the database so there is an alert to make sure they want to go through with the delete.  
 
 ## PHOTOS OF THE PAGES
-1.![Alt text](public/images/homepage.png)
-2.![Alt text](public/images/page2.png)
-3.![Alt text](public/images/page3.png)
-4.![Alt text](public/images/page4.png)
-5.![Alt text](public/images/page5.png)
-6.![Alt text](public/images/page6.png)
-7.![Alt text](public/images/page7.png)
-8.![Alt text](public/images/admin-page.png)
+1.![Alt text](wireframes/main-page.png)
+2.![Alt text](wireframes/feeling.png)
+3.![Alt text](wireframes/comment.png)
+4.![Alt text](wireframes/review.png)
+5.![Alt text](wireframes/admin.png)
+
 
 ### Built With
 
