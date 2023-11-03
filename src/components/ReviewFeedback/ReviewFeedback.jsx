@@ -33,7 +33,17 @@ export default function ReviewFeedback() {
         Comments:{" "}
         {feedback.comments ? feedback.comments : "No comments were given!"}
       </p>
-      <Button color="secondary" variant="contained" onClick={submitFeedback}>
+      <Button
+        style={{ backgroundColor: "#6F4255" }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.backgroundColor = "#AA6582";
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.backgroundColor = "#6F4255";
+        }}
+        variant="contained"
+        onClick={submitFeedback}
+      >
         Submit
       </Button>
     </>

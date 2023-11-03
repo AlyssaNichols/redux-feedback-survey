@@ -16,7 +16,13 @@ export default function Submitted() {
       <h1>Feedback Submitted!</h1>
       <h3>Thank you!</h3>
       <Button
-        color="secondary"
+        style={{ backgroundColor: "#6F4255" }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.backgroundColor = "#AA6582";
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.backgroundColor = "#6F4255";
+        }}
         variant="contained"
         className="startButton"
         onClick={returnHome}

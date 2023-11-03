@@ -11,7 +11,6 @@ export default function Support() {
   const history = useHistory();
   const feedback = useSelector((store) => store.feedbackReducer);
 
- 
   let supportValue;
 
   if (feedback.support) {
@@ -21,7 +20,6 @@ export default function Support() {
   }
   // local state for input
   const [support, setSupport] = useState(supportValue);
-
 
   const handleBack = (event) => {
     event.preventDefault();
@@ -88,10 +86,30 @@ export default function Support() {
         </Box>
         <br />
         <br />
-        <Button color="secondary" variant="contained" onClick={handleBack}>
+        <Button
+          style={{ backgroundColor: "#6F4255" }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = "#AA6582";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = "#6F4255";
+          }}
+          variant="contained"
+          onClick={handleBack}
+        >
           Back
         </Button>{" "}
-        <Button color="secondary" variant="contained" onClick={handleSubmit}>
+        <Button
+          style={{ backgroundColor: "#6F4255" }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = "#AA6582";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = "#6F4255";
+          }}
+          variant="contained"
+          onClick={handleSubmit}
+        >
           Next
         </Button>
       </form>

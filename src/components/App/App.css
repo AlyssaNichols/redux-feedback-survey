@@ -38,7 +38,8 @@ nav {
   background-color: #242e2e;
   color: #fff;
   padding: 15px;
-  font-size: 22px;
+  font-size: 20px;
+  letter-spacing: .5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
   position: fixed;
   width: 100%;
@@ -56,7 +57,7 @@ nav ul {
 }
 
 nav ul li {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 nav ul li:last-child {
@@ -142,7 +143,7 @@ tr:nth-child(even) {
 }
 
 .startButton:hover {
-  background-color: rgb(87, 210, 155);
+  background-color: #755B5B
 }
 .startButton:active {
   transform: scale(0.93);
